@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagram Race</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🏃 Anagram Race</h1>
+            <p class="subtitle">Scrambled letters, lightning speed, vocabulary power!</p>
+        </header>
+
+        <!-- Start Screen -->
+        <div id="startScreen" class="screen active">
+            <div class="start-content">
+                <h2>Welcome to Anagram Race</h2>
+                <p>Test your vocabulary skills! You have <strong>60 seconds</strong> per round to find as many valid English words as possible from scrambled letters.</p>
+                
+                <div class="rules">
+                    <h3>How to Play:</h3>
+                    <ul>
+                        <li>Each round gives you 7-8 scrambled letters</li>
+                        <li>Form words using any of the letters (minimum 3 letters)</li>
+                        <li>Each word is worth points equal to its length</li>
+                        <li>No duplicate words in the same round</li>
+                        <li>You have 15 challenging rounds</li>
+                        <li>Green = valid word, Red = invalid</li>
+                    </ul>
+                </div>
+
+                <button id="startBtn" class="btn btn-primary">Start Game</button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <div class="score-display">
+                    <span class="label">Score:</span>
+                    <span id="currentScore" class="score">0</span>
+                </div>
+                <div class="round-display">
+                    <span class="label">Round:</span>
+                    <span id="roundNumber" class="round">1/15</span>
+                </div>
+                <div class="timer-display">
+                    <span id="timer" class="timer">60</span>s
+                </div>
+            </div>
+
+            <div class="game-content">
+                <div class="letters-container">
+                    <p class="letters-label">Scrambled Letters:</p>
+                    <div id="letterDisplay" class="letter-grid">
+                        <!-- Letters will be inserted here -->
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <input 
+                        id="wordInput" 
+                        type="text" 
+                        placeholder="Type a word and press Enter..." 
+                        class="word-input"
+                        autocomplete="off"
+                        spellcheck="false"
+                    >
+                </div>
+
+                <div class="words-found">
+                    <h3>Words Found (<span id="wordsCount">0</span>):</h3>
+                    <div id="wordsList" class="words-list">
+                        <!-- Found words will appear here -->
+                    </div>
+                </div>
+
+                <div class="feedback-section">
+                    <div id="feedback" class="feedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultsScreen" class="screen">
+            <div class="results-content">
+                <h2>🎉 Game Over!</h2>
+                
+                <div class="final-score">
+                    <span class="label">Final Score:</span>
+                    <span id="finalScore" class="score-large">0</span>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Total Words Found:</span>
+                        <span id="statWords" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Best Round Score:</span>
+                        <span id="statBestRound" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Avg Words/Round:</span>
+                        <span id="statAvgWords" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Total Points Value:</span>
+                        <span id="statPointsValue" class="stat-value">0</span>
+                    </div>
+                </div>
+
+                <div class="round-breakdown">
+                    <h3>Round Breakdown:</h3>
+                    <div id="roundBreakdown" class="breakdown-list">
+                        <!-- Round stats will appear here -->
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+                    <button id="viewHighScoresBtn" class="btn btn-secondary">View High Scores</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- High Scores Screen -->
+        <div id="scoresScreen" class="screen">
+            <div class="scores-content">
+                <h2>🏆 High Scores</h2>
+                <div id="scoresList" class="scores-list">
+                    <!-- Scores will appear here -->
+                </div>
+                <button id="backBtn" class="btn btn-primary">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="words.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
